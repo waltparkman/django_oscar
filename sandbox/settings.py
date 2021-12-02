@@ -29,17 +29,30 @@ EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Use a Sqlite database by default
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+#         'NAME': os.environ.get('DATABASE_NAME', location('db.sqlite3')),
+#         'USER': os.environ.get('DATABASE_USER', None),
+#         'PASSWORD': os.environ.get('DATABASE_PASSWORD', None),
+#         'HOST': os.environ.get('DATABASE_HOST', None),
+#         'PORT': os.environ.get('DATABASE_PORT', None),
+#         'ATOMIC_REQUESTS': True
+#     }
+# }
+
+#Postgres configuration
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('DATABASE_NAME', location('db.sqlite3')),
-        'USER': os.environ.get('DATABASE_USER', None),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', None),
-        'HOST': os.environ.get('DATABASE_HOST', None),
-        'PORT': os.environ.get('DATABASE_PORT', None),
-        'ATOMIC_REQUESTS': True
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'oscar',
+        'USER': 'oscar',
+        'PASSWORD': 'Another-Fence-Chief-Literature-1',
+        'HOST': '127.0.0.1',
+        'PORT': '',
     }
 }
+
 
 CACHES = {
     'default': env.cache(default='locmemcache://'),
@@ -383,8 +396,8 @@ INTERNAL_IPS = ['127.0.0.1', '::1']
 # Meta
 # ====
 
-OSCAR_SHOP_NAME = 'Walt Parkman Books'
-OSCAR_SHOP_TAGLINE = 'Django Oscar'
+OSCAR_SHOP_NAME = 'Nucamp Books'
+OSCAR_SHOP_TAGLINE = 'Using PostgreSQL'
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
